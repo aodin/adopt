@@ -45,4 +45,19 @@ func TestUpdatePetsJob(t *testing.T) {
 	if len(pets) != 2 {
 		t.Fatalf("Unexpected number of pets: %d", len(pets))
 	}
+
+	// Delete one of the pets
+	if _, err = conn.Execute(Pets.Delete().Where(Pets.C["id"].Equals(1))); err != nil {
+		t.Fatalf("Could not delete pet with id 1: %s", err)
+	}
+
+	// Repeat the original upload
+	if err = h.updatePetsJob(examplePets); err != nil {
+		t.Fatalf("Could not repeat update pets job: %s", err)
+	}
+
+	// Clean up the database
+	if _, err = conn.Execute(Pets.Delete()); err != nil {
+		t.Fatalf("Could not delete pets: %s", err)
+	}
 }

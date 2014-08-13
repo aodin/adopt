@@ -22,13 +22,14 @@ func Complements(a, b []int64) (missingFromA, missingFromB []int64) {
 	sort.Sort(Int64Slice(b))
 	{
 		var j int
-		for _, i := range a {
-			if (j + 1) > len(b) {
-				break
-			}
-			if i < b[j] {
-				missingFromB = append(missingFromB, i)
+		for i := 0; i < len(a) && j < len(b); {
+			if a[i] < b[j] {
+				missingFromB = append(missingFromB, a[i])
+				i += 1
+			} else if a[i] > b[j] {
+				j += 1
 			} else {
+				i += 1
 				j += 1
 			}
 		}
@@ -38,13 +39,14 @@ func Complements(a, b []int64) (missingFromA, missingFromB []int64) {
 	}
 	{
 		var j int
-		for _, i := range b {
-			if (j + 1) > len(a) {
-				break
-			}
-			if i < a[j] {
-				missingFromA = append(missingFromA, i)
+		for i := 0; i < len(b) && j < len(a); {
+			if b[i] < a[j] {
+				missingFromA = append(missingFromA, b[i])
+				i += 1
+			} else if b[i] > a[j] {
+				j += 1
 			} else {
+				i += 1
 				j += 1
 			}
 		}

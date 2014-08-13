@@ -73,6 +73,8 @@ func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
 
 	newPetIDs, _ := Complements(existing, ids)
 
+	fmt.Println(newPetIDs)
+
 	// Insert new pets into the database
 	if len(newPetIDs) > 0 {
 		newPets := make([]PetWithTimestamp, len(newPetIDs))
