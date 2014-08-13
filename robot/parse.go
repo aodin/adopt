@@ -11,11 +11,6 @@ import (
 
 const baseURL = "http://www.petharbor.com/"
 
-// TODO add URL value "where"
-const denverURL = `http://www.petharbor.com/results.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=1000&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist=%27ARAP%27,%27AURO%27,%27DNVR%27,%27DDFL%27,%2783615%27,%2780454%27,%2779367%27,%2782294%27,%2777298%27,%2784657%27,%2769972%27,%2784715%27,%2779780%27,%2777803%27,%2776338%27,%2785330%27,%2776065%27,%2778397%27,%2786214%27,%2785252%27,%2774805%27,%2773867%27,%2782242%27,%2781793%27,%2772856%27,%2773086%27,%2782431%27,%2786406%27,%2774867%27,%2783241%27,%2772907%27,%2774328%27,%2786813%27,%2771436%27,%2782755%27,%2782206%27,%2776134%27&atype=&PAGE=1`
-
-var whereTypes = []string{"type_OO", "type_CAT", "type_DOG"}
-
 type Pet struct {
 	ID        int64
 	Name      string
@@ -29,15 +24,15 @@ type Pet struct {
 	ImageURL  string // TODO Or URL?
 }
 
-func UpdateImageURL(input string) (output string) {
+func UpdateParameter(input, key, value string) (output string) {
 	// Parse the input URL
 	u, err := url.Parse(input)
 	if err != nil {
 		return
 	}
-	// Update the query parameter RES
+	// Update the query parameter
 	updated := u.Query()
-	updated.Set("RES", "Detail")
+	updated.Set(key, value)
 	u.RawQuery = updated.Encode()
 	return u.String()
 }
@@ -83,7 +78,7 @@ func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 		link := cells[0].FirstChild()
 		img := link.FirstChild()
 
-		// TODO separate the name from the id
+		// Separate the name and the id
 		raw := strings.TrimSpace(cells[2].Content())
 		parts := strings.SplitN(raw, "(", 2)
 
@@ -99,10 +94,10 @@ func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 			err = fmt.Errorf("Cannot parse the ID in row %d: %s", i, rawID)
 			return
 		}
-
+		u := UpdateParameter(img.Attributes()["src"].String(), "RES", "Detail")
 		pet := Pet{
 			ID:        id,
-			ImageURL:  baseURL + UpdateImageURL(img.Attributes()["src"].String()),
+			ImageURL:  baseURL + u,
 			DetailURL: baseURL + link.Attributes()["href"].String(),
 			Type:      strings.TrimSpace(cells[1].Content()),
 			Name:      strings.TrimSpace(parts[0]),

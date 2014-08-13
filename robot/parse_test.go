@@ -56,12 +56,12 @@ func TestParse(t *testing.T) {
 	}
 }
 
-func TestUpdateImageURL(t *testing.T) {
+func TestUpdateParameter(t *testing.T) {
 	orig := "get_image.asp?RES=thumb&ID=9979224&LOCATION=74328"
 	// Golang's Values Encode() will sort the keys!
 	// expected :=  "get_image.asp?RES=Detail&ID=9979224&LOCATION=74328"
 	expected := "get_image.asp?ID=9979224&LOCATION=74328&RES=Detail"
-	result := UpdateImageURL(orig)
+	result := UpdateParameter(orig, "RES", "Detail")
 	if expected != result {
 		t.Fatalf("Unexpected image URL: %s", result)
 	}

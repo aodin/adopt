@@ -32,5 +32,19 @@ type PetWithTimestamp struct {
 	DetailURL string
 	ImageURL  string
 	Added     time.Time
-	Removed   time.Time
+	Removed   *time.Time // A pointer is used so the zero init is nil
+}
+
+func PWTFromPet(i Pet) (o PetWithTimestamp) {
+	o.ID = i.ID
+	o.Name = i.Name
+	o.Type = i.Type
+	o.Gender = i.Gender
+	o.Color = i.Color
+	o.Breed = i.Breed
+	o.Age = i.Age
+	o.Location = i.Location
+	o.DetailURL = i.DetailURL
+	o.ImageURL = i.ImageURL
+	return
 }
