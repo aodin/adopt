@@ -1,0 +1,389 @@
+
+<html>
+<script src="include/Common.js" 
+  language="javascript" 
+  type="text/javascript"></script>
+
+<SCRIPT LANGUAGE=JAVASCRIPT>
+<!-- hide script from old browsers
+
+// ******************************************************************************************
+//               ALL CONTENTS COPYRIGHT © HLP, INC. 1998-2010                               *
+//                                                                                          *
+// It is illegal to reproduce or distribute copyrighted material without the                *
+// permission of the copyright owner.                                                       *
+//                                                                                          *
+// Accessing images or text provided on Web sites does not give you any rights              *
+// to use them as you wish. Only the copyright owner, or the owner's legal agent,           *
+// can give you permission to copy, distribute, or publicly display protected               *
+// material.                                                                                *
+//                                                                                          *
+// The No Electronic Theft Act, known as the NET Act, was enacted in 1997 to facilitate     *
+// prosecutions of Internet copyright piracy.                                               *
+// The NET Act makes it illegal to reproduce or distribute copyrighted works,               *
+// such as software programs and musical recordings,                                        *
+// even if the defendant acts without a commercial purpose or for private financial gain.   *
+//                                                                                          *
+// Connection to the PetHarbor engine by any means is legal via license with HLP ONLY.      *   
+// ******************************************************************************************
+
+//-->
+</script>
+<NOSCRIPT>
+This document contains JavaScript.  You may have disabled JavaScript, 
+or perhaps your browser does not support it.  Please be aware that 
+some of the useful features of our site depend upon this technology.
+You can download (for free) a newer browser that supports JavaScript
+from either <A href="www.microsoft.com">Microsoft</a> (www.microsoft.com) 
+or <a href="www.netscape.com">Netscape</a> (www.netscape.com).
+</noscript><SCRIPT LANGUAGE="JavaScript"><!--var sPassAlong = new String("") ;sPassAlong = "searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO" ;//--></SCRIPT>
+
+<head>
+<body>
+<TITLE>www.PetHarbor.com Animal Search: ADOPTABLE </TITLE>
+<style  type="text/css">
+<!--
+body
+    {
+	font-family: arial;
+	font-size: 10pt;
+	color: #0000FF;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	background-color: #FFFFFF;
+	margin-top: 1;
+	margin-bottom: 1;
+	}
+A
+    {
+    color: #0000FF;
+    text-decoration: underline;
+    }
+A:link
+    {
+    color: #0000FF;
+    }
+A:visited
+	{
+	color: #00FFFF;
+	}
+A:active
+	{
+	color: #FF00FF;
+	}
+A:hover
+	{
+	color: #FF00FF;
+	}
+A.Button
+    {
+    border-style: outset;
+    }
+font
+	{
+	font-family: arial;
+	font-size: 10pt;
+	font-weight: none;
+	}
+font.Small
+    {
+    font-size:9pt;
+    }	
+font.Big
+    {
+    font-size:12pt;
+    }    
+font.Title
+    {
+    font-size:14pt;
+    font-weight:bold;
+    }
+font.Button
+    {
+    font-weight:bold;
+    /*color:black;*/
+    text-decoration: none;
+    }    
+font.BigButton
+    {
+    font-size:larger;
+    font-weight:bold;
+    /*color:black;*/
+    text-decoration: none;
+    }    
+    
+font.Tiny
+    {
+    font-size: 8pt;
+    font-weight: none;
+    }    
+    
+        .step
+    {
+        color: #404040;
+        font-weight: bold;
+        font-size: 1.5em;
+        padding: 10px 0 10px 0;
+    }	
+table.ResultsTable
+    {
+    text-align: center;
+    cell-spacing: 4;
+    padding: 5;
+    align:center;
+    }
+table.Command
+    {
+	border-width : 1px;
+	border-style : solid;
+    }    
+td.TableTitle
+	{
+	background-color: #FFFFFF;
+	color: #0000FF;
+	font-weight: bold;
+	border-width : 1px;
+	border-style : none;
+	text-align: center;
+	}
+
+td.TableContent1
+	{
+	background-color: #FFFFFF;
+	color: #0000FF;
+	text-align: center ;
+	border-width : 0px;
+	border-style : none;
+	}
+
+td.TableContent2
+	{
+	background-color: #FFFFFF;
+	color: #0000FF;
+	text-align: center ;
+	border-width : 0px;
+	border-style : none;
+	}
+td.Search
+    {
+    background-color: 00FFFF;
+    }	
+/*    
+IMG.Results
+    {
+    height: 120px;
+    }    
+*/    
+TEXTAREA.Success
+    {
+	font-family: arial;
+    text-align: center;
+    color: #0000FF;
+    background-color: #FFFFFF;
+    border-style:solid;
+    border-width:1px;
+    }  
+    
+    
+/* This is the width of the overall container */    
+.GridResultsContainer
+{
+  width: 95%;  
+  margin: 0 auto;  
+}
+
+/* This is the container for each of the individual boxes
+width controls how wide the boxes are
+Border controls how thick the border around the box is
+border-radius controls how rounded the corners are
+Box-Shadow controls the shadow around each box
+*/
+.gridResult
+{
+  width: 200px;  
+  border: 1px solid #ccc;  
+  border-radius: 3px;
+  -webkit-box-shadow: 2px 2px 3px 0px #ccc;
+  -moz-box-shadow:    2px 2px 3px 0px #ccc;
+  box-shadow:         2px 2px 3px 0px #ccc;  
+  /*Please do not change below this line*/
+  float: left;
+  margin: 10px 1%;  
+  padding: 3px 10px 5px 10px; 
+}
+
+
+/* This controls the animal picture
+Width is the size of the picture - must be less than the gridResult container
+border-radius controls how rounded the corners are
+*/
+.gridResult a img
+{
+  width: 180px;
+  border-radius: 3px;
+  /* Please do not change below this line*/
+  margin: 0 auto;
+  display: block;
+}
+
+/* Controls the text size and font */
+.gridText
+{
+  font-family: arial;
+	font-size: 10pt;
+	color: #0000FF;
+  font-size: .85em;
+  text-align: center;
+}
+-->    
+</style> 
+
+    <meta http-equiv="imagetoolbar" content="no">
+    <!--<meta addname='X-XSS-Protection:0' content='IE=edge' http-equiv='X-UA-Compatible'/>-->
+     
+    <TITLE>PetHarbor.com: Animal Shelter adopt a pet; dogs, cats, puppies, kittens! Humane Society, SPCA. Lost & Found.</TITLE>
+    <meta http-equiv="Content-Language" content="en">
+    <meta http-equiv="Content-Type" content="txt/html; charset=ISO-8859-1">
+    <meta name="Description" content="PetHarbor.com: National Adoptable and Lost & Found database. Animal Shelter adopt a pet; dogs, cats, puppies, kittens! Humane Society, SPCA. Lost & Found. Data from hundreds of animal shelters in the US and Canada. Breed Search, Lost and Found pet matching service.">
+    <meta name="Abstract" content="PetHarbor.com: Animal Shelter adopt a pet; dogs, cats, puppies, kittens! Humane Society, SPCA. Lost & Found.">
+    <meta name="Keywords" content="pictures of cats,animal shelter,pet finder,cute puppies,humane society,spca,adopt a pet,animal shelters,dog rescue,animal rescue,adopt a dog,adopt a puppy,adopt a cat,lost animals,pet harbor,petharbor,pet adoption,lost dogs,petfinder,lost cats">
+    <meta name="classification" content="pictures of cats,animal shelter,pet finder,cute puppies,humane society,spca,adopt a pet,animal shelters,dog rescue,animal rescue,adopt a dog,adopt a puppy,adopt a cat,lost animals,pet harbor,petharbor,pet adoption,lost dogs,petfinder,lost cats">
+    <meta name="Copyright" content="Copyright © 1998-2012 HLP, Inc.">
+    <meta name="Owner" content="HLP, Inc.">
+    <meta name="Robots" content="all">
+    <meta name="Distribution" content="Global">
+    <meta name="Revisit-After" content="15 days">
+    <meta name="Rating" content="General">
+    <meta name="Reply-to" content="support@PetHarbor.com">
+
+
+
+<script src="include/common.js" language="javascript" type="text/javascript"></script>
+<script src="include/SaveSearch.js" language="javascript" type="text/javascript"></script>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="include/jquery.mosaicflow.min.js"></script>-->
+</head>
+
+<body><form name="frmResults" action="" method="get" ID="frmResults"><table width="100%" class="TableTitle TableTitleMain"><tr><td align="center" class="TableTitle"><font class="Title">Current Search: ADOPTABLE OTHERS</div></td></tr></table><TABLE border=0 WIDTH="100%"><tr><td align=center><b>Not finding the right Animal?</b></td></tr><tr><td align=center><font class="Tiny">Remember, the fewer things you search on, the more animals you will see.<br>Use the 'No Preference' option for breed, gender, age, size and color to see the most animals.</FONT></td></tr></table><br><center>We found 26 matches. Click on a column-header to sort by that column.<BR><font class="Instructions">Click on the picture for detailed information:</font></center><TABLE class="ResultsTable" align=center BORDER=0><TR ALIGN=CENTER><TD class="TableTitle">Picture</td><TD class="TableTitle"><A Alt="Click on Column Header to Sort" Title="Click on Column Header to Sort" HREF="results.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO&NewOrderBy=Animal%20Type&PAGE=1">Animal Type</a></td><TD class="TableTitle"><A Alt="Click on Column Header to Sort" Title="Click on Column Header to Sort" HREF="results.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO&NewOrderBy=Name&PAGE=1">Name</a></td><TD class="TableTitle"><A Alt="Click on Column Header to Sort" Title="Click on Column Header to Sort" HREF="results.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO&NewOrderBy=Gender&PAGE=1">Gender</a></td><TD class="TableTitle"><A Alt="Click on Column Header to Sort" Title="Click on Column Header to Sort" HREF="results.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO&NewOrderBy=Main%20Color&PAGE=1">Main Color</a></td><TD class="TableTitle"><A Alt="Click on Column Header to Sort" Title="Click on Column Header to Sort" HREF="results.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO&NewOrderBy=Breed&PAGE=1">Breed</a></td><TD class="TableTitle"><A Alt="Click on Column Header to Sort" Title="Click on Column Header to Sort" HREF="results.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO&NewOrderBy=Age&PAGE=1">Age</a></td><TD class="TableTitle"><A Alt="Click on Column Header to Sort" Title="Click on Column Header to Sort" HREF="results.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO&NewOrderBy=Located%20At&PAGE=1">Located At</a></td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10049878&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10049878&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Tippy (10049878)</td><TD class="TableContent1">Female</td><TD class="TableContent1"></td><TD class="TableContent1">Rat</td><TD class="TableContent1">1 year, 8 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10049881&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10049881&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Jade (10049881)</td><TD class="TableContent2">Female</td><TD class="TableContent2"></td><TD class="TableContent2">Rat</td><TD class="TableContent2">1 year, 8 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10049885&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10049885&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Mango (10049885)</td><TD class="TableContent1">Female</td><TD class="TableContent1"></td><TD class="TableContent1">Rat</td><TD class="TableContent1">1 year, 8 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10049888&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10049888&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Kiwi (10049888)</td><TD class="TableContent2">Female</td><TD class="TableContent2"></td><TD class="TableContent2">Rat</td><TD class="TableContent2">1 year, 8 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10049889&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10049889&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Zook (10049889)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Rat</td><TD class="TableContent1">1 year, 8 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10049890&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10049890&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Buzz (10049890)</td><TD class="TableContent2">Male</td><TD class="TableContent2"></td><TD class="TableContent2">Rat</td><TD class="TableContent2">1 year, 8 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10049891&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10049891&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Harvey (10049891)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Rat</td><TD class="TableContent1">1 year, 8 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10461412&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10461412&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Torry (10461412)</td><TD class="TableContent2">Female</td><TD class="TableContent2"></td><TD class="TableContent2">Chinchilla</td><TD class="TableContent2">1 year, 5 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10461413&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10461413&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Maya (10461413)</td><TD class="TableContent1">Female</td><TD class="TableContent1"></td><TD class="TableContent1">Chinchilla</td><TD class="TableContent1">1 year, 5 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10461414&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10461414&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Allison (10461414)</td><TD class="TableContent2">Female</td><TD class="TableContent2"></td><TD class="TableContent2">Chinchilla</td><TD class="TableContent2">1 year, 5 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10663105&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10663105&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Rosemary (10663105)</td><TD class="TableContent1">Female</td><TD class="TableContent1"></td><TD class="TableContent1">Hamster</td><TD class="TableContent1">1 year, 4 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=10663106&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=10663106&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Amy (10663106)</td><TD class="TableContent2">Female</td><TD class="TableContent2"></td><TD class="TableContent2">Chinchilla</td><TD class="TableContent2">1 year, 4 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=7668416&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=7668416&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Theodore (7668416)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Degu</td><TD class="TableContent1">3 years old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=8442049&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=8442049&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Simon (8442049)</td><TD class="TableContent2">Male</td><TD class="TableContent2"></td><TD class="TableContent2">Degu</td><TD class="TableContent2">2 years, 6 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=8717673&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=8717673&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Vincent (8717673)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Rat</td><TD class="TableContent1">2 years, 4 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9364132&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9364132&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Chance (9364132)</td><TD class="TableContent2">Female</td><TD class="TableContent2"></td><TD class="TableContent2">Mouse</td><TD class="TableContent2">2 years</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9702961&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9702961&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Shaggy (9702961)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Degu</td><TD class="TableContent1">1 year, 10 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9702962&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9702962&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Scooby (9702962)</td><TD class="TableContent2">Male</td><TD class="TableContent2"></td><TD class="TableContent2">Degu</td><TD class="TableContent2">1 year, 10 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9877504&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9877504&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Rocky (9877504)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Rat</td><TD class="TableContent1">1 year, 9 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9877505&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9877505&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Calvin (9877505)</td><TD class="TableContent2">Male</td><TD class="TableContent2"></td><TD class="TableContent2">Rat</td><TD class="TableContent2">1 year, 9 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9877506&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9877506&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Sunny (9877506)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Rat</td><TD class="TableContent1">1 year, 9 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9877507&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9877507&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">George (9877507)</td><TD class="TableContent2">Male</td><TD class="TableContent2"></td><TD class="TableContent2">Rat</td><TD class="TableContent2">1 year, 9 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9883497&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9883497&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Scott (9883497)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Degu</td><TD class="TableContent1">1 year, 9 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9883498&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9883498&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Spikes (9883498)</td><TD class="TableContent2">Male</td><TD class="TableContent2"></td><TD class="TableContent2">Degu</td><TD class="TableContent2">1 year, 9 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent1"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9883499&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9883499&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent1">small anim</td><TD class="TableContent1">Chubs (9883499)</td><TD class="TableContent1">Male</td><TD class="TableContent1"></td><TD class="TableContent1">Degu</td><TD class="TableContent1">1 year, 9 months old</td><TD class="TableContent1">Apple Wood Rescue, Inc.</td></tr><TR ALIGN=CENTER><TD class="TableContent2"><A Alt="Click on this picture to see more information about this animal" Title="Click on this picture to see more information about this animal" HREF="detail.asp?ID=9883500&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO"><IMG HEIGHT = "120" SRC="get_image.asp?RES=thumb&ID=9883500&LOCATION=82294" oncontextmenu="return false"></a></td><TD class="TableContent2">small anim</td><TD class="TableContent2">Hobbs (9883500)</td><TD class="TableContent2">Male</td><TD class="TableContent2"></td><TD class="TableContent2">Chinchilla</td><TD class="TableContent2">1 year, 9 months old</td><TD class="TableContent2">Apple Wood Rescue, Inc.</td></tr></table><BR><CENTER>Page 1 of 1</center><CENTER>1</center><br><div align=center><input type="button" name="cmdPrevStep" value="<-- Previous Step " onClick="GoBack()"></div><br><br><center><table class="Command" width="66%" height=94><tr><td><BR><TABLE border=0 WIDTH="100%"><tr><td align=center><a href="pick_shelter.asp?zip=80014&miles=200&start=2&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&atype="><b>Not finding the right Animal? Click here for Maximum Search</b></a></td></tr></table><BR><div align=center><b><a class="Button" href="WebForm_PetRequest.aspx?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO&reqtype=other">Register your Breed Interest</a><br>Receive email when matching animals arrive at the shelter.<br></b></div></td></tr></table></center><br><br><table width="100%" ><tr><td align=center><table  border=1><tr><td align=center><b>Featured Adoptable Pet</b><br><br><script src="http://www.PetHarbor.com/petoftheday.asp?shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&imgwid=160&imght=120&imgname=POD&bgcolor=FFFFFF&fgcolor=0000FF&type=other&border=0&availableonly=1&SEQ=0&SHOWSTAT=1&fontface=arial&fontsize=2&noclientinfo=0&bigtitle=1&source=results" language=javascript type=text/javascript></script></td><td align=center valign=middle><br><br><span class="SuccessTitle"><b>Featured Pet</b></span><br><font class="Tiny SuccessStory">Would you like to include a Featured Adoptable Pet on your own web page? You can, and it's easy!<br><TEXTAREA class="Success" readonly cols="53" rows=2><script src="http://www.PetHarbor.com/petoftheday.asp?shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&imgwid=160&imght=120&imgname=POD&bgcolor=FFFFFF&fgcolor=0000FF&type=other&border=0&availableonly=1&SEQ=0&SHOWSTAT=1&fontface=arial&fontsize=2&noclientinfo=0&bigtitle=1&source=results" language=javascript type=text/javascript></script></TEXTAREA><br>Simply copy and paste the above HTML into your page, and you will have a Featured Pet from the shelter list you've chosen already.<br><a href="FeaturedPetTest.asp?shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&imgwid=160&imght=120&imgname=POD&bgcolor=FFFFFF&fgcolor=0000FF&type=other&border=0&availableonly=1&SEQ=0&SHOWSTAT=1&fontface=arial&fontsize=2&noclientinfo=0&bigtitle=1&source=results">Customize this Featured Adoptable Pet</a></font></td></tr></table></td></tr></table><br><br>
+
+  
+
+    <table class="Command" style="margin: 0 auto; width: 550px;">
+        <tr>
+        <td colspan="5"><p class="step" style="text-align: center; font-weight: bold;">Customize This View</p></td>
+        </tr>
+        <tr class="commandRowA">
+        <td> 
+            <b>Image Size</b>
+        </td>
+        <td>  
+            <input type="radio" name="ImageSize" value="l" onClick="NoteChoice('imght','300')"/>
+            Large
+        </td>
+        <td>
+            <input type="radio" name="ImageSize" value="m" onClick="NoteChoice('imght','200')"/>
+            Medium
+        </td>
+        <td> 
+            <input type="radio" name="ImageSize" value="s" onClick="NoteChoice('imght','120')"/>
+            Small
+        </td>
+        <td></td>
+
+    </tr>
+    <tr class="commandRowB">
+        <td>
+            <b>Image Resolution</b>
+        </td>
+        <td> 
+            <input type="radio" name="ImageRes" value="l" onClick="NoteChoice('imgres','thumb')"/>
+            Low
+        </td>
+        <td width="18%"> 
+            <input type="radio" name="ImageRes" value="h" onClick="NoteChoice('imgres','detail')"/>
+            High
+        </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr class="commandRowA">
+        <td>
+            <b>
+            Rows Per Page
+            </b>
+        </td>
+        <td> 
+            <input type="radio" name="Rows" value="1" onClick="NoteChoice('rows','1')"/>
+            1 
+        </td>
+        <td> 
+            <input type="radio" name="Rows" value="5" onClick="NoteChoice('rows','5')"/>
+            5 
+        </td>
+        <td> 
+            <input type="radio" name="Rows" value="10" onClick="NoteChoice('rows','10')"/>
+            10
+        </td>
+        <td> 
+            <input type="radio" name="Rows" value="25" onClick="NoteChoice('rows','25')"/>
+            25
+        </td>
+    </tr>
+    <tr>
+    <td colspan="5" style="text-align: center;">
+        <input type="button" name="cmdReForm" value="Re-Form Page" OnClick="ReForm()"/>
+    </td>
+         
+    </tr>
+    </table>
+
+
+
+
+   <div class="copyright" style="text-align: center; margin-top: 20px;">Powered By <a target=_blank href="http://www.PetHarbor.com">
+          <img src="images/lh_11.png"> 
+          <b>www.PetHarbor.com</b> </a></div> 
+
+  <div class="copyright" style="text-align: center;">Contents copyright &copy;HLP Inc 1997-2014<br/>HLP, Inc. and PetHarbor make no assertions about the availability, behavior or condition of any animal.</div> 
+
+    
+</form>
+
+<!--<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>-->
+<!--<script type="text/javascript">
+_uacct = "UA-2258493-1";
+urchinTracker();
+</script>-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2258493-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function () {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+
+  var $paragraphs = $('.gridResult'), heights = [];
+  $paragraphs.each(function () {
+    heights.push($(this).height());
+  });
+
+  var maxHeight = Math.max.apply(this, heights);
+
+  $paragraphs.height(maxHeight);
+</script>
+
+</body>
+
+<script src="resultsFooter.js" 
+  language="javascript" 
+  type="text/javascript"></script>
+
+</html>
