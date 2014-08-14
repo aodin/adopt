@@ -71,15 +71,15 @@ func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
 		return fmt.Errorf("Error while querying existing ids: %s", err)
 	}
 
-	newPetIDs, _ := Complements(existing, ids)
-
-	fmt.Println(newPetIDs)
+	newIDs, removedIDs := Complements(existing, ids)
+	fmt.Println(newIDs)
+	fmt.Println(removedIDs)
 
 	// Insert new pets into the database
-	if len(newPetIDs) > 0 {
-		newPets := make([]PetWithTimestamp, len(newPetIDs))
+	if len(newIDs) > 0 {
+		newPets := make([]PetWithTimestamp, len(newIDs))
 		var i int
-		for _, id := range newPetIDs {
+		for _, id := range newIDs {
 			newPets[i] = PWTFromPet(petsByID[id])
 			// TODO Database could perform auto-now
 			newPets[i].Added = time.Now()
@@ -90,7 +90,17 @@ func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
 		}
 	}
 
-	// TODO Update existing pets' removed field
+	// Update existing pets' removed field
+	if len(removedIDs) > 0 {
+		values := aspect.Values{"removed": time.Now()}
+		removeStmt := Pets.Update(values).Where(Pets.C["id"].In(removedIDs))
+
+		fmt.Println(removeStmt)
+
+		if _, err = conn.Execute(removeStmt); err != nil {
+			return fmt.Errorf("Error while updating removed pets: %s", err)
+		}
+	}
 
 	return nil
 }

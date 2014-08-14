@@ -20,6 +20,7 @@ func (a Int64Slice) Less(i, j int) bool {
 func Complements(a, b []int64) (missingFromA, missingFromB []int64) {
 	sort.Sort(Int64Slice(a))
 	sort.Sort(Int64Slice(b))
+	// TODO These loops can likely be combined
 	{
 		var j int
 		for i := 0; i < len(a) && j < len(b); {
