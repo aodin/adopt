@@ -3,9 +3,11 @@ package robot
 import (
 	"fmt"
 	"github.com/aodin/aspect"
+	_ "github.com/aodin/aspect/postgres"
 	"github.com/aodin/volta/config"
 	"io/ioutil"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -72,8 +74,6 @@ func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
 	}
 
 	newIDs, removedIDs := Complements(existing, ids)
-	fmt.Println(newIDs)
-	fmt.Println(removedIDs)
 
 	// Insert new pets into the database
 	if len(newIDs) > 0 {
@@ -94,9 +94,6 @@ func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
 	if len(removedIDs) > 0 {
 		values := aspect.Values{"removed": time.Now()}
 		removeStmt := Pets.Update(values).Where(Pets.C["id"].In(removedIDs))
-
-		fmt.Println(removeStmt)
-
 		if _, err = conn.Execute(removeStmt); err != nil {
 			return fmt.Errorf("Error while updating removed pets: %s", err)
 		}
@@ -107,6 +104,26 @@ func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
 
 func (h handler) UpdatePetsJob() error {
 	return h.updatePetsJob(GetPets)
+}
+
+func (h handler) UpdatePetsFromFile(file string) error {
+	f, err := os.Open(file)
+	if err != nil {
+		return err
+	}
+	content, err := ioutil.ReadAll(f)
+	if err != nil {
+		return err
+	}
+	pets, err := ParsePetsHTML(content)
+	if err != nil {
+		return err
+	}
+	fmt.Printf("Found %d pets\n", len(pets))
+	fromFile := func() ([]Pet, error) {
+		return pets, nil
+	}
+	return h.updatePetsJob(fromFile)
 }
 
 func NewPetsHandler(db config.DatabaseConfig) (h handler) {

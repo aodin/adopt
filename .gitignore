@@ -54,3 +54,6 @@ docs/_build/
 
 # Local settings
 local_settings.json
+
+# Local data
+/_data
