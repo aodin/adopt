@@ -5,14 +5,13 @@ import (
 	"github.com/moovweb/gokogiri"
 	"github.com/moovweb/gokogiri/xml"
 	"net/url"
-	"strconv"
 	"strings"
 )
 
 const baseURL = "http://www.petharbor.com/"
 
 type Pet struct {
-	ID        int64
+	ID        string
 	Name      string
 	Type      string
 	Gender    string
@@ -82,25 +81,32 @@ func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 		raw := strings.TrimSpace(cells[2].Content())
 		parts := strings.SplitN(raw, "(", 2)
 
-		// Parse the ID
-		rawID := parts[1]
-		if rawID != "" {
-			rawID = rawID[:len(rawID)-1]
+		var id string
+		var name string
+
+		// If there are no parentheses, then assume the animal has an id
+		// and no name
+		if len(parts) == 1 {
+			id = parts[0]
+		} else {
+			// Parse the ID
+			id = parts[1]
+			if id == "" {
+				id = strings.TrimSpace(parts[0])
+			} else {
+				// Remove the trailing parentheses
+				id = strings.TrimSpace(id[:len(id)-1])
+				name = strings.TrimSpace(parts[0])
+			}
 		}
 
-		var id int64
-		id, err = strconv.ParseInt(rawID, 10, 64)
-		if err != nil {
-			err = fmt.Errorf("Cannot parse the ID in row %d: %s", i, rawID)
-			return
-		}
 		u := UpdateParameter(img.Attributes()["src"].String(), "RES", "Detail")
 		pet := Pet{
 			ID:        id,
 			ImageURL:  baseURL + u,
 			DetailURL: baseURL + link.Attributes()["href"].String(),
 			Type:      strings.TrimSpace(cells[1].Content()),
-			Name:      strings.TrimSpace(parts[0]),
+			Name:      name,
 			Gender:    strings.TrimSpace(cells[3].Content()),
 			Color:     strings.TrimSpace(cells[4].Content()),
 			Breed:     strings.TrimSpace(cells[5].Content()),

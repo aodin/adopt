@@ -16,8 +16,8 @@ func (a Int64Slice) Less(i, j int) bool {
 	return a[i] < a[j]
 }
 
-// Complements determine the complements of both arrays.
-func Complements(a, b []int64) (missingFromA, missingFromB []int64) {
+// Int64Complements determine the complements of both int64 arrays.
+func Int64Complements(a, b []int64) (missingFromA, missingFromB []int64) {
 	sort.Sort(Int64Slice(a))
 	sort.Sort(Int64Slice(b))
 	// TODO These loops can likely be combined
@@ -53,6 +53,32 @@ func Complements(a, b []int64) (missingFromA, missingFromB []int64) {
 		}
 		if j < len(a) {
 			missingFromB = append(missingFromB, a[j:]...)
+		}
+	}
+	return
+}
+
+// Complements determine the complements of both strings arrays.
+func Complements(as, bs []string) (missingFromA, missingFromB []string) {
+	setA := make(map[string]bool)
+	for _, a := range as {
+		setA[a] = true
+	}
+
+	setB := make(map[string]bool)
+	for _, b := range bs {
+		setB[b] = true
+	}
+
+	for _, a := range as {
+		if _, ok := setB[a]; !ok {
+			missingFromB = append(missingFromB, a)
+		}
+	}
+
+	for _, b := range bs {
+		if _, ok := setA[b]; !ok {
+			missingFromA = append(missingFromA, b)
 		}
 	}
 	return

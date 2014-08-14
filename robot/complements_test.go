@@ -2,11 +2,11 @@ package robot
 
 import "testing"
 
-func TestComplements(t *testing.T) {
+func TestInt64Complements(t *testing.T) {
 	// Test equal
 	a := []int64{1, 2, 3}
 	b := []int64{3, 2, 1}
-	mFromA, mFromB := Complements(a, b)
+	mFromA, mFromB := Int64Complements(a, b)
 	if len(mFromA) != 0 || len(mFromB) != 0 {
 		t.Errorf("Equal arrays should have no complements: %v, %v", mFromA, mFromB)
 	}
@@ -14,7 +14,7 @@ func TestComplements(t *testing.T) {
 	// Test one difference
 	a = []int64{1, 2, 4}
 	b = []int64{3, 2, 1}
-	mFromA, mFromB = Complements(a, b)
+	mFromA, mFromB = Int64Complements(a, b)
 	if len(mFromA) != 1 || len(mFromB) != 1 {
 		t.Fatalf("There should be complements: %v, %v", mFromA, mFromB)
 		if mFromA[0] != 3 {
@@ -28,7 +28,7 @@ func TestComplements(t *testing.T) {
 	// Test major differences
 	a = []int64{5, 6, 7}
 	b = []int64{}
-	mFromA, mFromB = Complements(a, b)
+	mFromA, mFromB = Int64Complements(a, b)
 	if len(mFromA) != 0 || len(mFromB) != 3 {
 		t.Fatalf("There should be complements for b: %v", mFromB)
 		if mFromB[0] != 5 {
@@ -44,7 +44,7 @@ func TestComplements(t *testing.T) {
 
 	a = []int64{}
 	b = []int64{5, 6, 7}
-	mFromA, mFromB = Complements(a, b)
+	mFromA, mFromB = Int64Complements(a, b)
 	if len(mFromA) != 3 || len(mFromB) != 0 {
 		t.Fatalf("There should be complements for a: %v", mFromB)
 		if mFromA[0] != 5 {
@@ -60,7 +60,7 @@ func TestComplements(t *testing.T) {
 
 	a = []int64{2}
 	b = []int64{1, 2}
-	mFromA, mFromB = Complements(a, b)
+	mFromA, mFromB = Int64Complements(a, b)
 	if len(mFromA) != 1 || len(mFromB) != 0 {
 		t.Fatalf("There should be complements for a: %v, and not b: %v", mFromA, mFromB)
 		if mFromA[0] != 1 {
@@ -70,7 +70,7 @@ func TestComplements(t *testing.T) {
 
 	a = []int64{1, 2}
 	b = []int64{2}
-	mFromA, mFromB = Complements(a, b)
+	mFromA, mFromB = Int64Complements(a, b)
 	if len(mFromB) != 1 || len(mFromA) != 0 {
 		t.Fatalf("There should be complements for b: %v, and not a: %v", mFromB, mFromA)
 		if mFromB[0] != 1 {

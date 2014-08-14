@@ -59,15 +59,15 @@ func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
 	}
 
 	// Get all the current pet ids
-	ids := make([]int64, len(pets))
-	petsByID := make(map[int64]Pet)
+	ids := make([]string, len(pets))
+	petsByID := make(map[string]Pet)
 	for i, pet := range pets {
 		ids[i] = pet.ID
 		petsByID[pet.ID] = pet
 	}
 
 	// Add any pets that don't yet exist and mark any that were removed
-	var existing []int64
+	var existing []string
 	stmt := aspect.Select(Pets.C["id"]).OrderBy(Pets.C["id"].Asc())
 	if err = conn.QueryAll(stmt, &existing); err != nil {
 		return fmt.Errorf("Error while querying existing ids: %s", err)

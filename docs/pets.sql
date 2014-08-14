@@ -1,5 +1,5 @@
 CREATE TABLE "pets" (
-  "id" INTEGER PRIMARY KEY,
+  "id" VARCHAR PRIMARY KEY,
   "name" VARCHAR,
   "type" VARCHAR,
   "gender" VARCHAR,

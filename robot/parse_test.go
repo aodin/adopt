@@ -19,13 +19,13 @@ func TestParse(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	if len(pets) != 26 {
+	if len(pets) != 34 {
 		t.Fatalf("Unexpected number of ParsePetsHTML results: %d", len(pets))
 	}
 
 	tippy := pets[0]
-	if tippy.ID != 10049878 {
-		t.Errorf("Unexpected ID: %d", tippy.ID)
+	if tippy.ID != "10049878" {
+		t.Errorf("Unexpected ID: %s", tippy.ID)
 	}
 	if tippy.Name != "Tippy" {
 		t.Errorf("Unexpected name: %s", tippy.Name)
@@ -48,12 +48,22 @@ func TestParse(t *testing.T) {
 	if tippy.Location != "Apple Wood Rescue, Inc." {
 		t.Errorf("Unexpected location: %s", tippy.Location)
 	}
-	if tippy.DetailURL != "http://www.petharbor.com/detail.asp?ID=10049878&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO" {
+	if tippy.DetailURL != "http://www.petharbor.com/detail.asp?ID=10049878&LOCATION=82294&searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=1000&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10&shelterlist='ARAP','AURO','DNVR','DDFL','83615','80454','79367','82294','77298','84657','69972','84715','79780','77803','76338','85330','76065','78397','86214','85252','74805','73867','82242','81793','72856','73086','82431','86406','74867','83241','72907','74328','86813','71436','82755','82206','76134'&atype=&where=type_OO" {
 		t.Errorf("Unexpected detail URL: %s", tippy.DetailURL)
 	}
 	if tippy.ImageURL != "http://www.petharbor.com/get_image.asp?ID=10049878&LOCATION=82294&RES=Detail" {
 		t.Errorf("Unexpected image URL: %s", tippy.ImageURL)
 	}
+
+	// The last pet should not have a name, only an id
+	last := pets[33]
+	if last.ID != "A222504" {
+		t.Errorf("Unexpected last ID: %s", last.ID)
+	}
+	if last.Name != "" {
+		t.Errorf("Unexpected last name: %s", last.Name)
+	}
+
 }
 
 func TestUpdateParameter(t *testing.T) {

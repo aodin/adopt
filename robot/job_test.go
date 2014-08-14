@@ -9,15 +9,15 @@ import (
 
 func examplePets() ([]Pet, error) {
 	pets := []Pet{
-		Pet{ID: 1, Name: "Wolvy"},
-		Pet{ID: 2, Name: "Sparty"},
+		Pet{ID: "1", Name: "Wolvy"},
+		Pet{ID: "2", Name: "Sparty"},
 	}
 	return pets, nil
 }
 
 func lessPets() ([]Pet, error) {
 	pets := []Pet{
-		Pet{ID: 2, Name: "Sparty"},
+		Pet{ID: "2", Name: "Sparty"},
 	}
 	return pets, nil
 }

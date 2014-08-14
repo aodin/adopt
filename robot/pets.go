@@ -6,7 +6,7 @@ import (
 )
 
 var Pets = aspect.Table("pets",
-	aspect.Column("id", aspect.Integer{PrimaryKey: true}),
+	aspect.Column("id", aspect.String{PrimaryKey: true}),
 	aspect.Column("name", aspect.String{}),
 	aspect.Column("type", aspect.String{}),
 	aspect.Column("gender", aspect.String{}),
@@ -21,7 +21,7 @@ var Pets = aspect.Table("pets",
 )
 
 type PetWithTimestamp struct {
-	ID        int64
+	ID        string
 	Name      string
 	Type      string
 	Gender    string
