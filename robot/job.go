@@ -7,7 +7,6 @@ import (
 	"github.com/aodin/volta/config"
 	"io/ioutil"
 	"net/http"
-	"os"
 	"time"
 )
 
@@ -46,17 +45,25 @@ type handler struct {
 }
 
 func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
-	conn, err := aspect.Connect(h.db.Driver, h.db.Credentials())
-	if err != nil {
-		return err
-	}
-	defer conn.Close()
-
 	// Get the currently listed pets
 	pets, err := method()
 	if err != nil {
 		return err
 	}
+	return h.UpdatePets(pets)
+}
+
+func (h handler) UpdatePetsJob() error {
+	return h.updatePetsJob(GetPets)
+}
+
+func (h handler) UpdatePets(pets []Pet) error {
+	// Connect to the database
+	conn, err := aspect.Connect(h.db.Driver, h.db.Credentials())
+	if err != nil {
+		return err
+	}
+	defer conn.Close()
 
 	// Get all the current pet ids
 	ids := make([]string, len(pets))
@@ -98,32 +105,7 @@ func (h handler) updatePetsJob(method func() ([]Pet, error)) error {
 			return fmt.Errorf("Error while updating removed pets: %s", err)
 		}
 	}
-
 	return nil
-}
-
-func (h handler) UpdatePetsJob() error {
-	return h.updatePetsJob(GetPets)
-}
-
-func (h handler) UpdatePetsFromFile(file string) error {
-	f, err := os.Open(file)
-	if err != nil {
-		return err
-	}
-	content, err := ioutil.ReadAll(f)
-	if err != nil {
-		return err
-	}
-	pets, err := ParsePetsHTML(content)
-	if err != nil {
-		return err
-	}
-	fmt.Printf("Found %d pets\n", len(pets))
-	fromFile := func() ([]Pet, error) {
-		return pets, nil
-	}
-	return h.updatePetsJob(fromFile)
 }
 
 func NewPetsHandler(db config.DatabaseConfig) (h handler) {

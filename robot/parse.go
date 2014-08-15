@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"github.com/moovweb/gokogiri"
 	"github.com/moovweb/gokogiri/xml"
+	"io/ioutil"
 	"net/url"
+	"os"
 	"strings"
 )
 
@@ -116,4 +118,20 @@ func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 		pets = append(pets, pet)
 	}
 	return
+}
+
+func ParsePetsFile(file string) ([]Pet, error) {
+	f, err := os.Open(file)
+	if err != nil {
+		return nil, err
+	}
+	content, err := ioutil.ReadAll(f)
+	if err != nil {
+		return nil, err
+	}
+	pets, err := ParsePetsHTML(content)
+	if err != nil {
+		return nil, err
+	}
+	return pets, nil
 }

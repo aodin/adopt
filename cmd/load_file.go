@@ -7,6 +7,9 @@ import (
 	"log"
 )
 
+// TODO This file only makes sense for bootstrapping a complete set of data
+// otherwise subsequent uploads will have their "removed" field set
+
 func main() {
 	flag.Parse()
 
@@ -21,13 +24,19 @@ func main() {
 
 	log.Printf("Parsing %d files\n", len(flag.Args()))
 
-	// TODO This creates a new database connection for each file
+	// Parse each file
+	pets := make([]robot.Pet, 0)
 	for _, file := range flag.Args() {
 		log.Printf("Parsing %s\n", file)
-
-		if err = h.UpdatePetsFromFile(file); err != nil {
-			log.Fatalf("Could not complete update pets job: %s", err)
+		pp, err := robot.ParsePetsFile(file)
+		if err != nil {
+			log.Printf("Error while parsing file %s: %s", file, err)
 		}
-		// TODO Logging? Output?
+		pets = append(pets, pp...)
+	}
+	log.Printf("%d Total Pets\n", len(pets))
+
+	if err = h.UpdatePets(pets); err != nil {
+		log.Fatalf("Could not complete update pets job: %s", err)
 	}
 }
