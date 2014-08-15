@@ -55,6 +55,15 @@ func TestParse(t *testing.T) {
 		t.Errorf("Unexpected image URL: %s", tippy.ImageURL)
 	}
 
+	// The second pet has an open parantheses in its name!
+	juliet := pets[1]
+	if juliet.ID != "10759266" {
+		t.Errorf("Unexpected ID: %s", juliet.ID)
+	}
+	if juliet.Name != "Juliet" {
+		t.Errorf("Unexpected name: %s", juliet.Name)
+	}
+
 	// The last pet should not have a name, only an id
 	last := pets[33]
 	if last.ID != "A222504" {

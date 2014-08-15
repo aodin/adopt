@@ -16,8 +16,8 @@ var Pets = aspect.Table("pets",
 	aspect.Column("location", aspect.String{}),
 	aspect.Column("detail_url", aspect.String{}),
 	aspect.Column("image_url", aspect.String{}),
-	aspect.Column("added", aspect.Timestamp{}),
-	aspect.Column("removed", aspect.Timestamp{}),
+	aspect.Column("added", aspect.Timestamp{WithTimezone: true}),
+	aspect.Column("removed", aspect.Timestamp{WithTimezone: true}),
 )
 
 type PetWithTimestamp struct {

@@ -9,6 +9,6 @@ CREATE TABLE "pets" (
   "location" VARCHAR,
   "detail_url" VARCHAR,
   "image_url" VARCHAR,
-  "added" TIMESTAMP,
-  "removed" TIMESTAMP
+  "added" TIMESTAMP WITH TIME ZONE,
+  "removed" TIMESTAMP WITH TIME ZONE
 );

@@ -24,7 +24,7 @@ func lessPets() ([]Pet, error) {
 
 func TestUpdatePetsJob(t *testing.T) {
 	// Create a test database config
-	c, err := config.ParseFile("./local_settings.json")
+	c, err := config.ParseFile("./test_settings.json")
 	if err != nil {
 		t.Fatalf("Could not load configuration file: %s", err)
 	}

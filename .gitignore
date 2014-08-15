@@ -54,6 +54,8 @@ docs/_build/
 
 # Local settings
 local_settings.json
+test_settings.json
+local_settings.py
 
 # Local data
 /_data

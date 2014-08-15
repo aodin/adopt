@@ -81,7 +81,7 @@ func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 
 		// Separate the name and the id
 		raw := strings.TrimSpace(cells[2].Content())
-		parts := strings.SplitN(raw, "(", 2)
+		parts := strings.Split(raw, "(")
 
 		var id string
 		var name string
@@ -91,14 +91,16 @@ func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 		if len(parts) == 1 {
 			id = parts[0]
 		} else {
+			// combine all but the last part to form the name
+			id = parts[len(parts)-1]
+			name = strings.TrimSpace(parts[0])
+
 			// Parse the ID
-			id = parts[1]
 			if id == "" {
 				id = strings.TrimSpace(parts[0])
 			} else {
 				// Remove the trailing parentheses
 				id = strings.TrimSpace(id[:len(id)-1])
-				name = strings.TrimSpace(parts[0])
 			}
 		}
 
