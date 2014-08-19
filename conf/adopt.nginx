@@ -1,0 +1,18 @@
+server {
+    #listen   80; ## listen for ipv4; this line is default and implied
+    #listen   [::]:80 default ipv6only=on; ## listen for ipv6
+
+    location /static {
+        alias /srv/adopt/pets/static/;
+    }
+
+    location /media {
+        alias /srv/adopt/pets/media/;
+    }
+
+    location / {
+        client_max_body_size 5m;
+        include uwsgi_params;
+        uwsgi_pass 127.0.0.1:9001;
+    }
+}
