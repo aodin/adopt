@@ -42,26 +42,26 @@ def upgrade_pip():
     sudo('pip install -q -U virtualenv')
 
 
-def clone(url, directory='/srv', user='www-data'):
+def clone(url, directory='/srv'):
     """
     Clone the given repo into the /srv directory by default.
     """
     with cd(directory):
-        sudo('chown {user}:{user} .'.format(user=user))
-        sudo('hg clone {url}'.format(url=url), user=user)
+        sudo('git clone {url}'.format(url=url))
 
 
-def setup_env(alias, directory='/srv', user='www-data'):
+def setup_env(alias, directory='/srv'):
     """
     Create the python virtual environment.
     """
+    requirements = os.path.join(directory, alias, 'requirements.txt')
     path = os.path.join(directory, alias, 'env')
 
     # Create the virtual environment
-    sudo('virtualenv {path}'.format(path=path), user=user)
+    sudo('virtualenv {path}'.format(path=path))
 
-    # TODO dependencies should be in a file
-    sudo('{path}/bin/pip install -r {path}/requirements.txt'.format(dir=directory), user=user)
+    # And install the requirements
+    sudo('{path}/bin/pip install -r {requirements}'.format(path=path, requirements=requirements))
 
 
 def server_ln(alias):
@@ -94,13 +94,21 @@ def server_ln(alias):
     sudo('initctl reload-configuration')
 
 
-def restart_servers():
+def restart_servers(alias):
     """
-    Restarts the servers.
+    Restarts the application and static servers.
     """
-    sudo('service hello restart')
+    sudo('service {alias} restart'.format(alias=alias))
     sudo('nginx -t')
     sudo('service nginx restart')
+
+
+def create_pg_db(db):
+    """
+    Create the given database.
+    """
+    # TODO test to see if database already exists
+    sudo('createdb {db}'.format(db=db), user='postgres')
 
 
 def alter_pg_user(password, user='postgres'):
@@ -108,6 +116,18 @@ def alter_pg_user(password, user='postgres'):
     Alter the user with the given password.
     """
     sudo("""psql -c "ALTER USER {user} with password '{password}';" """.format(user=user, password=password), user='postgres')
+
+
+def setup_django(alias, app):
+    """
+    Run django's syncdb and collectstatic in its virtualenv
+    """
+    python = '/srv/{alias}/env/bin/python'.format(alias=alias)
+    manage = '/srv/{alias}/{app}/manage.py'.format(alias=alias, app=app)
+
+    # Do not accept input during syncdb, we will create a superuser ourselves
+    sudo('{python} {manage} syncdb --verbosity=0 --noinput'.format(python=python, manage=manage))
+    sudo('{python} {manage} collectstatic --verbosity=0 --noinput'.format(python=python, manage=manage))
 
 
 def update():
@@ -130,9 +150,11 @@ def deploy(upgrade=False):
         upgrade_pip()
 
     # Fun starts here
-    clone('https://aodin@github.com/adopt')
+    clone('https://github.com/aodin/adopt.git')
     setup_env('adopt')
     server_ln('adopt')
+    create_pg_db('adopt')
+    setup_django('adopt', 'pets')
 
     # Restart
-    restart_servers()
+    restart_servers('adopt')
