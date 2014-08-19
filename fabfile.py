@@ -133,7 +133,6 @@ def deploy(upgrade=False):
     clone('https://aodin@github.com/adopt')
     setup_env('adopt')
     server_ln('adopt')
-    alter_pg_user('*#(Nrc3wmacwioUHO')
 
     # Restart
     restart_servers()
