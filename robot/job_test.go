@@ -86,6 +86,8 @@ func TestUpdatePetsJob(t *testing.T) {
 	}
 
 	// Clean up the database
+	// TODO clean-up should always be performed - either use defer or
+	// a transaction
 	if _, err = conn.Execute(Pets.Delete()); err != nil {
 		t.Fatalf("Could not delete pets: %s", err)
 	}

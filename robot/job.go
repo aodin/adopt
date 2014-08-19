@@ -75,7 +75,11 @@ func (h handler) UpdatePets(pets []Pet) error {
 
 	// Add any pets that don't yet exist and mark any that were removed
 	var existing []string
-	stmt := aspect.Select(Pets.C["id"]).OrderBy(Pets.C["id"].Asc())
+	stmt := aspect.Select(
+		Pets.C["id"],
+	).OrderBy(
+		Pets.C["id"].Asc(),
+	)
 	if err = conn.QueryAll(stmt, &existing); err != nil {
 		return fmt.Errorf("Error while querying existing ids: %s", err)
 	}
@@ -97,10 +101,15 @@ func (h handler) UpdatePets(pets []Pet) error {
 		}
 	}
 
-	// Update existing pets' removed field
+	// Update existing pets' removed field (if it hasn't already been set)
 	if len(removedIDs) > 0 {
 		values := aspect.Values{"removed": time.Now()}
-		removeStmt := Pets.Update(values).Where(Pets.C["id"].In(removedIDs))
+		removeStmt := Pets.Update(values).Where(
+			aspect.AllOf(
+				Pets.C["id"].In(removedIDs),
+				Pets.C["removed"].IsNull(),
+			),
+		)
 		if _, err = conn.Execute(removeStmt); err != nil {
 			return fmt.Errorf("Error while updating removed pets: %s", err)
 		}
