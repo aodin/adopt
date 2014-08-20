@@ -24,7 +24,7 @@ SECRET_KEY = '#^+!kr7-shnx#r7k)@rwhe&$z(dd28un#&sl4(0ea60=^-s^8w'
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
