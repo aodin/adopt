@@ -94,6 +94,10 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'dev-static'),
 )
 
+TEMPLATE_DIRS = (
+    os.path.join(BASE_DIR, 'templates'),
+)
+
 try:
     # Put your local DB settings in a file called 'local_settings.py'
     from local_settings import *

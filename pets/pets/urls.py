@@ -12,6 +12,7 @@ router = routers.DefaultRouter()
 router.register(r'pets', PetViewSet)
 
 urlpatterns = patterns('',
-    url(r'^', include(router.urls)),
+    url(r'^', 'pets.views.random_pet', name="random_pet"),
+    url(r'^api/', include(router.urls)),
     url(r'^admin/', include(admin.site.urls)),
 )
