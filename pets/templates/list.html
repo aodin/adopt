@@ -36,8 +36,8 @@ table th, table td {
     <tbody>
     {% for pet in pets %}
       <tr>
-        <td>{{ pet.name | title }}</td>
-        <td>{{ pet.type }}</td>
+        <td><a href="{% url 'single_pet' pet.id %}">{{ pet.name | title }}</a></td>
+        <td>{{ pet.type | title }}</td>
         <td>{{ pet.gender }}</td>
         <td>{{ pet.color }}</td>
         <td>{{ pet.breed }}</td>
@@ -48,7 +48,7 @@ table th, table td {
   </table>
 
   {% else %}
-  <p>Sorry, there are no pets available at this time.</p>
+  <p>Sorry, no pets can be shown at the moment!</p>
   {% endif %}
 </div>
 {% endblock %}
