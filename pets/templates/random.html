@@ -21,5 +21,6 @@ h1, h2 {
   <p>You can adopt me at {{ pet.location }}!</p>
   <a href="{{ pet.detail_url }}"><img src="{{ pet.image_url }}"></a>
   <p><a href="{{ pet.detail_url }}">Click here to find out more!</a></p>
+  <p><a href="{% url 'single_pet' pet.id %}">permalink</a></p>
 </div>
 {% endblock %}
