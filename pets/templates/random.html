@@ -1,5 +1,25 @@
 {% extends 'foundation.html' %}{% load url from future %}
 
+{% block header %}
+<link rel="stylesheet" href="{{ STATIC_URL }}css/normalize.min.css">
+<style>
+h1, h2 {
+  font-weight: normal;
+}
+.container {
+  margin: 0 auto;
+  padding: 10px;
+  max-width: 600px;
+}
+</style>
+{% endblock %}
+
 {% block body %}
-<p>{{ pet }}</p>
+<div class="container">
+  <h1>Hi! I'm {{ pet.name | title }}!</h1>
+  <p>I am a {{ pet.gender | lower }} {{ pet.color | lower }} {{ pet.breed | lower }}.<p>
+  <p>You can adopt me at {{ pet.location }}!</p>
+  <a href="{{ pet.detail_url }}"><img src="{{ pet.image_url }}"></a>
+  <p><a href="{{ pet.detail_url }}">Click here to find out more!</a></p>
+</div>
 {% endblock %}
