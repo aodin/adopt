@@ -50,6 +50,26 @@ def clone(url, directory='/srv'):
         sudo('git clone {url}'.format(url=url))
 
 
+def update_git(alias, app, remote='origin', reset=False, syncdb=False):
+    """
+    Update the git repository.
+    """
+    # TODO os.path.join these various file paths
+    src = '/srv/{alias}/'.format(alias=alias)
+    python = '/srv/{alias}/env/bin/python'.format(alias=alias)
+    manage = '/srv/{alias}/{app}/manage.py'.format(alias=alias, app=app)
+
+    with cd(src):
+        if reset:
+            sudo('git reset --hard HEAD')
+        sudo('git pull {remote} master'.format(remote=remote))
+
+    if syncdb:
+        sudo('{python} {manage} syncdb --verbosity=0 --noinput'.format(python=python, manage=manage))
+
+    sudo('{python} {manage} collectstatic --verbosity=0 --noinput'.format(python=python, manage=manage))
+
+
 def setup_env(alias, directory='/srv'):
     """
     Create the python virtual environment.
@@ -130,10 +150,12 @@ def setup_django(alias, app):
     sudo('{python} {manage} collectstatic --verbosity=0 --noinput'.format(python=python, manage=manage))
 
 
-def update():
+def update(reset=False, syncdb=False):
     """
+    Update the pets application.
     """
-    pass
+    update_git('adopt', 'pets', reset=reset, syncdb=syncdb)
+    restart_servers('adopt')
 
 
 def deploy(upgrade=False):
