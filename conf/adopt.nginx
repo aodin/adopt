@@ -13,8 +13,6 @@ server {
 
     location / {
         client_max_body_size 5m;
-        include uwsgi_params;
-        uwsgi_param HTTP_X_FORWARDED_PROTOCOL $scheme;
-        uwsgi_pass 127.0.0.1:9001;
+        proxy_pass http://127.0.0.1:9001;
     }
 }
