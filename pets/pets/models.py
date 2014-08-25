@@ -14,7 +14,7 @@ class Pet(models.Model):
     breed = models.CharField(max_length=64)
     age = models.CharField(max_length=64)
     location = models.CharField(max_length=128)
-    detail_url = models.CharField(max_length=256)
+    detail_url = models.CharField(max_length=1024)
     image_url = models.CharField(max_length=256)
     added = models.DateTimeField(auto_now_add=True)
     removed = models.DateTimeField(null=True)
