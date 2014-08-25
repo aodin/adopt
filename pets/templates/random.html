@@ -17,7 +17,7 @@ h1, h2 {
 {% block body %}
 <div class="container">
   {% if pet %}
-  <h1>Hi! I'm {{ pet.name | title }}!</h1>
+  <h1>Hi! {% if pet.name %}I'm {{ pet.name | title }}{% else %}I don't have a name{% endif %}!</h1>
   <p>I am a {{ pet.gender | lower }} {{ pet.color | lower }} {{ pet.breed | lower }}.<p>
   <p>You can adopt me at {{ pet.location }}!</p>
   <a href="{{ pet.detail_url }}"><img src="{{ pet.image_url }}"></a>

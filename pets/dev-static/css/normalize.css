@@ -423,3 +423,10 @@ td,
 th {
   padding: 0;
 }
+
+/* Additional styles */
+img {
+    page-break-inside: avoid;
+    max-width: 100% !important;
+    vertical-align: middle;
+}
