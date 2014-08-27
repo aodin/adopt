@@ -21,11 +21,18 @@ h1, h2 {
   <p>I am a {{ pet.gender | lower }} {{ pet.color | lower }} {{ pet.breed | lower }}.<p>
   <p>You can adopt me at {{ pet.location }}!</p>
   <a href="{{ pet.detail_url }}"><img src="{{ pet.image_url }}"></a>
-  <p><a href="{{ pet.detail_url }}">Click here to find out more!</a></p>
-  <p><a href="{% url 'single_pet' pet.id %}">permalink</a></p>
+  <p><a href="{{ pet.detail_url }}">Find out more</a> or <a href="{% url 'single_pet' pet.id %}">get a permanent URL for this pet</a></p>
   {% else %}
   <p>Sorry, no pets can be shown at the moment!</p>
   {% endif %}
+
+  <h3 style="margin-top:30px;font-weight:normal">Adoptable Pets in Denver</h3>
+  <ul class="inline">
+    <li><a href="{% url 'random_pet' %}">Random Pet</a></li>
+    <li><a href="{% url 'random_pet' %}?type=cat">Random Cat</a></li>
+    <li><a href="{% url 'random_pet' %}?type=dog">Random Dog</a></li>
+    <li><a href="{% url 'all_pets' %}">All Pets</a></li>
+  </ul>
 
 </div>
 {% endblock %}

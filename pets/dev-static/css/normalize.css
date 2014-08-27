@@ -426,7 +426,17 @@ th {
 
 /* Additional styles */
 img {
-    page-break-inside: avoid;
-    max-width: 100% !important;
-    vertical-align: middle;
+  page-break-inside: avoid;
+  max-width: 100% !important;
+  vertical-align: middle;
+}
+
+.inline {
+  padding-left: 0;
+}
+
+.inline li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
 }
