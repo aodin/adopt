@@ -22,18 +22,18 @@ func GetPets() ([]Pet, error) {
 		u := UpdateParameter(denverURL, "where", animal)
 		response, err := http.Get(u)
 		if err != nil {
-			return pets, fmt.Errorf("Error while getting animal %s: %s", err)
+			return pets, fmt.Errorf("error while getting %s: %s", animal, err)
 		}
 		defer response.Body.Close()
 
 		content, err := ioutil.ReadAll(response.Body)
 		if err != nil {
-			return pets, fmt.Errorf("Error while reading animal %s: %s", err)
+			return pets, fmt.Errorf("error while reading %s: %s", animal, err)
 		}
 
 		pp, err := ParsePetsHTML(content)
-		if pp != nil {
-			return pets, fmt.Errorf("Error while parsing animal %s: %s", err)
+		if err != nil {
+			return pets, fmt.Errorf("error while parsing %s: %s", animal, err)
 		}
 		pets = append(pets, pp...)
 	}
@@ -81,7 +81,7 @@ func (h handler) UpdatePets(pets []Pet) error {
 		Pets.C["id"].Asc(),
 	)
 	if err = conn.QueryAll(stmt, &existing); err != nil {
-		return fmt.Errorf("Error while querying existing ids: %s", err)
+		return fmt.Errorf("error while querying existing ids: %s", err)
 	}
 
 	newIDs, removedIDs := Complements(existing, ids)
@@ -97,7 +97,7 @@ func (h handler) UpdatePets(pets []Pet) error {
 			i += 1
 		}
 		if _, err = conn.Execute(Pets.Insert(newPets)); err != nil {
-			return fmt.Errorf("Error while inserting new pets: %s", err)
+			return fmt.Errorf("error while inserting new pets: %s", err)
 		}
 	}
 
@@ -111,7 +111,7 @@ func (h handler) UpdatePets(pets []Pet) error {
 			),
 		)
 		if _, err = conn.Execute(removeStmt); err != nil {
-			return fmt.Errorf("Error while updating removed pets: %s", err)
+			return fmt.Errorf("error while updating removed pets: %s", err)
 		}
 	}
 	return nil

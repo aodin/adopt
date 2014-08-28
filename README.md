@@ -7,6 +7,7 @@ Visit a deployed version of the site at [pets.codefordenver.org](http://pets.cod
 
 This site creates an alternative API for pets in [shelters near Denver](http://www.petharbor.com/pick_shelter.asp?searchtype=ADOPT&friends=1&samaritans=1&nosuccess=0&rows=100&imght=120&imgres=thumb&view=sysadm.v_animal_short&fontface=arial&fontsize=10&zip=80209&miles=10). It is written in Python on the [Django](https://www.djangoproject.com/) web framework. It is backed by a custom robot written in [Go](http://golang.org/).
 
+
 ### Website
 
 The website is deployed and updated through [Fabric](http://www.fabfile.org/) commands. Deploying to a Ubuntu 14.04 server can be done with:
@@ -36,6 +37,10 @@ The database is populated by an automated Go process. To run the robot, includin
     }
 }
 ```
+
+To update the animals in the database, simply run the `get_pets.go` script in the `cmd` directory:
+
+    go run go run get_pets.go
 
 A database can also be bootstrapped with `html` files downloaded from the source website. These are loaded with the `load_file.go` script in the `cmd` directory. For example:
 

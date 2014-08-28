@@ -41,7 +41,7 @@ func UpdateParameter(input, key, value string) (output string) {
 func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 	dom, err := gokogiri.ParseHtml(content)
 	if err != nil {
-		err = fmt.Errorf("Error parsing HTML: %s")
+		err = fmt.Errorf("error parsing HTML: %s")
 		return
 	}
 
@@ -56,7 +56,7 @@ func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 	// q := "//table[contains(@class, 'Test')]//tr"
 
 	if len(rows) < 2 {
-		err = fmt.Errorf("Insufficient number of rows: %d", len(rows))
+		err = fmt.Errorf("insufficient number of rows: %d", len(rows))
 		return
 	}
 
@@ -66,12 +66,12 @@ func ParsePetsHTML(content []byte) (pets []Pet, err error) {
 		// Select the cells from the row
 		cells, err = row.Search("./td")
 		if err != nil {
-			err = fmt.Errorf("Error finding cells in row %d: %s", i+1, err)
+			err = fmt.Errorf("error finding cells in row %d: %s", i+1, err)
 			return
 		}
 
 		if len(cells) < 8 {
-			err = fmt.Errorf("Row %d does not have at least 8 cells", i)
+			err = fmt.Errorf("row %d does not have at least 8 cells", i)
 			return
 		}
 
