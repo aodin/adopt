@@ -16,6 +16,13 @@ h1, h2 {
 
 {% block body %}
 <div class="container">
+  <ul class="inline" style="margin:0 0 25px">
+    <li><a href="{% url 'random_pet' %}">Random Pet</a></li>
+    <li><a href="{% url 'random_pet' %}?type=cat">Random Cat</a></li>
+    <li><a href="{% url 'random_pet' %}?type=dog">Random Dog</a></li>
+    <li><a href="{% url 'all_pets' %}">All Pets</a></li>
+  </ul>
+
   {% if pet %}
   <h1>Hi! {% if pet.name %}I'm {{ pet.name | title }}{% else %}I don't have a name{% endif %}!</h1>
   <p>I am a {{ pet.gender | lower }} {{ pet.color | lower }} {{ pet.breed | lower }}.<p>
@@ -26,13 +33,7 @@ h1, h2 {
   <p>Sorry, no pets can be shown at the moment!</p>
   {% endif %}
 
-  <h3 style="margin-top:30px;font-weight:normal">Adoptable Pets in Denver</h3>
-  <ul class="inline">
-    <li><a href="{% url 'random_pet' %}">Random Pet</a></li>
-    <li><a href="{% url 'random_pet' %}?type=cat">Random Cat</a></li>
-    <li><a href="{% url 'random_pet' %}?type=dog">Random Dog</a></li>
-    <li><a href="{% url 'all_pets' %}">All Pets</a></li>
-  </ul>
+  <h2 style="margin-top:30px;font-weight:normal">Adoptable Pets in Denver</h2>
 
 </div>
 {% endblock %}
