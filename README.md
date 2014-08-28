@@ -23,7 +23,11 @@ Any updates can also be performed by the `fabfile`:
 
 ### Robot
 
-The database is populated by an automated Go process. To run the robot, including any tests or commands, first create a `local_settings.json` file in the `robot` sub-directory with valid database credentials. An example:
+The database is populated by an automated Go process. Install the robot with:
+
+    go get -u github.com/aodin/adopt/robot
+
+To run the robot, including any tests or commands, create a `local_settings.json` file in the `robot` sub-directory with valid database credentials. An example:
 
 ```json
 {
@@ -40,7 +44,7 @@ The database is populated by an automated Go process. To run the robot, includin
 
 To update the animals in the database, simply run the `get_pets.go` script in the `cmd` directory:
 
-    go run go run get_pets.go
+    go run get_pets.go
 
 A database can also be bootstrapped with `html` files downloaded from the source website. These are loaded with the `load_file.go` script in the `cmd` directory. For example:
 
